@@ -1,0 +1,69 @@
+#!/bin/bash
+#
+# /etc/rc.d/init.d/cacti-spine
+#
+# chkconfig: 2345 86 14
+# description: CACTI-SPINE Daemon
+
+# Define variables
+CACTI-SPINE_PID=/var/run/cacti-spine.pid
+CACTI-SPINE_EXE=/usr/local/spine/spine
+CACTI-SPINE_ARG=""
+CACTI-SPINE_CNF=/etc/cacti-spine/spine.conf
+
+# Source function library.
+#. /etc/rc.d/init.d/functions
+. /lib/lsb/init-functions
+
+case "$1" in
+start)
+# Check to see if cacti-spine is running.
+if [[ -f ${CACTI-SPINE_PID} || -f /var/lock/subsys/cacti-spine ]]; then
+	echo "cacti-spine may already be running. Check for existing cacti-spine processes."
+	exit 1
+fi
+echo -n "Starting cacti-spine:"
+$CACTI-SPINE_EXE $CACTI-SPINE_ARG -C $CACTI-SPINE_CNF && success || failure
+echo
+touch /var/lock/subsys/cacti-spine
+;;
+stop)
+if [[ -f ${CACTI-SPINE_PID} && -f /var/lock/subsys/cacti-spine ]]; then
+	echo -n "Stopping cacti-spine:"
+	killproc -p ${CACTI-SPINE_PID}
+	echo
+	rm -f /var/lock/subsys/cacti-spine
+	rm -f ${CACTI-SPINE_PID}
+else
+	echo "cacti-spine does not appear to be running."
+fi
+;;
+status)
+if [[ -f ${CACTI-SPINE_PID} && -f /var/lock/subsys/cacti-spine ]]; then
+       echo "cacti-spine pid is `cat ${CACTI-SPINE_PID}`"
+else
+        echo "cacti-spine does not appear to be running."
+fi
+;;
+restart)
+$0 stop; $0 start
+;;
+reload)
+echo -n "Reloading cacti-spine..."
+if [[ -f ${CACTI-SPINE_PID} && -f /var/lock/subsys/cacti-spine ]]; then
+	kill -HUP `cat ${CACTI-SPINE_PID}`
+	RETVAL=$?
+fi
+if [ $RETVAL -ne 0 ]; then
+	failure
+else
+	success
+fi
+echo
+
+;;
+*)
+echo "Usage: $0 {start|stop|status|reload|restart}"
+exit 1
+;;
+esac
