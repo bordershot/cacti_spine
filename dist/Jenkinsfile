@@ -4,11 +4,11 @@ def os_to_build = ['Ubuntu1604', 'Ubuntu1404', 'CentOS7', 'CentOS6']
 def version_number = "1.1.25"
 def osmap = ['CentOS7':['packaging':'rpm', 'init':'systemd', 'distro':'el7', 
                         'build_env':'alanfranz/fwd-centos-7:latest', 
-                        'build_deps':['wget', 'gcc', 'make', tofrodos', 'mysql-devel', 'net-snmp-devel', 'help2man'], 
+                        'build_deps':['wget', 'gcc', 'make', 'tofrodos', 'mysql-devel', 'net-snmp-devel', 'help2man'], 
                         'install_deps':['mysql-devel', 'net-snmp-devel'], test_env:'centos:7'],
              'CentOS6':['packaging':'rpm', 'init':'sysv', 'distro':'el6', 
                         'build_env':'alanfranz/fwd-centos-6:latest',
-                        'build_deps':['wget', 'gcc', 'make', tofrodos', 'mysql-devel', 'net-snmp-devel', 'help2man'],
+                        'build_deps':['wget', 'gcc', 'make', 'tofrodos', 'mysql-devel', 'net-snmp-devel', 'help2man'],
                         'install_deps':['mysql-devel', 'net-snmp-devel', 'redhat-lsb'], test_env:'centos:6'],
              'Ubuntu1604':['packaging':'deb', 'init':'systemd', 'distro':'xenial', 
                            'build_env':'alanfranz/fwd-ubuntu-xenial:latest',
