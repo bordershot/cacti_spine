@@ -1,6 +1,6 @@
 def package_name = 'cacti-spine'
 def description = 'Cacti-Spine for DD'
-def os_to_build = ['Ubuntu1604', 'Ubuntu1404']
+def os_to_build = ['Ubuntu1604', 'Ubuntu1404', 'CentOS7', 'CentOS6']
 def version_number = "1.1.25"
 def osmap = ['CentOS7':['packaging':'rpm', 'init':'systemd', 'distro':'el7', 
                         'build_env':'alanfranz/fwd-centos-7:latest', 
