@@ -3,6 +3,6 @@ Description=Cacti Spine Poller
 After=network.target auditd.service
 
 [Service]
-ExecStart=/usr/local/spine/spine
+ExecStart=/usr/local/spine/spine -C /etc/cacti-spine/spine.conf
 KillMode=process
 Restart=on-failure
