@@ -58,8 +58,8 @@ for (x in os_to_build) {
         }
         stage('download') {
           git url: 'https://github.com/bordershot/cacti_spine.git'
-          sh 'wget http://www.cacti.net/downloads/spine/cacti-spine-${version_number}.tar.gz'
-          sh 'tar xvzf cacti-spine-${version_number}.tar.gz'
+          sh "wget http://www.cacti.net/downloads/spine/cacti-spine-${version_number}.tar.gz"
+          sh "tar xvzf cacti-spine-${version_number}.tar.gz"
         }
         stage('build') {
           sh "rm -rf $WORKSPACE/fpm-build-${OS} || true"
