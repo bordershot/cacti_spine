@@ -12,11 +12,11 @@ def osmap = ['CentOS7':['packaging':'rpm', 'init':'systemd', 'distro':'el7',
                         'install_deps':['mysql-devel', 'net-snmp-devel', 'redhat-lsb'], test_env:'centos:6'],
              'Ubuntu1604':['packaging':'deb', 'init':'systemd', 'distro':'xenial', 
                            'build_env':'alanfranz/fwd-ubuntu-xenial:latest',
-                           'build_deps':['wget', 'gcc', 'make', tofrodos', 'libmysqlclient-dev', 'libsnmp-dev', 'help2man'],
+                           'build_deps':['wget', 'gcc', 'make', 'tofrodos', 'libmysqlclient-dev', 'libsnmp-dev', 'help2man'],
                            'install_deps':['libsnmp-dev', 'libmysqlclient-dev'], test_env:'ubuntu:xenial'],
              'Ubuntu1404':['packaging':'deb', 'init':'sysv', 'distro':'trusty',
                            'build_env':'alanfranz/fwd-ubuntu-trusty:latest',
-                           'build_deps':['wget', 'gcc', 'make', tofrodos', 'libmysqlclient-dev', 'libsnmp-dev', 'help2man'],
+                           'build_deps':['wget', 'gcc', 'make', 'tofrodos', 'libmysqlclient-dev', 'libsnmp-dev', 'help2man'],
                            'install_deps':['libsnmp-dev', 'libmysqlclient-dev'], test_env:'ubuntu:trusty'],
             ]
 
