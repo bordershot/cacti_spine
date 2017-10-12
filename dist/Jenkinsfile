@@ -1,23 +1,23 @@
 def package_name = 'cacti-spine'
 def description = 'Cacti-Spine for DD'
-def os_to_build = ['Ubuntu1604']
+def os_to_build = ['Ubuntu1604', 'Ubuntu1404']
 def version_number = "1.1.25"
 def osmap = ['CentOS7':['packaging':'rpm', 'init':'systemd', 'distro':'el7', 
                         'build_env':'alanfranz/fwd-centos-7:latest', 
-                        'build_deps':['autoconf', 'automake', 'dos2unix', 'gcc-core', 'gzip', 'help2man', 'libmysqlclient', 'libmysqlclient-devel', 'libtool', 'm4', 'make', 'net-snmp-devel', 'openssl-devel', 'wget'], 
-                        'install_deps':['pam-devel', 'tcp_wrappers'], test_env:'centos:7'],
+                        'build_deps':['wget', 'gcc', 'make', tofrodos', 'libmysqlclient-dev', 'libsnmp-dev', 'help2man'], 
+                        'install_deps':['libsnmp-dev', 'libmysqlclient-dev'], test_env:'centos:7'],
              'CentOS6':['packaging':'rpm', 'init':'sysv', 'distro':'el6', 
                         'build_env':'alanfranz/fwd-centos-6:latest',
-                        'build_deps':['autoconf', 'automake', 'dos2unix', 'gcc-core', 'gzip', 'help2man', 'libmysqlclient', 'libmysqlclient-devel', 'libtool', 'm4', 'make', 'net-snmp-devel', 'openssl-devel', 'wget'],
-                        'install_deps':['pam-devel', 'tcp_wrappers', 'redhat-lsb'], test_env:'centos:6'],
+                        'build_deps':['wget', 'gcc', 'make', tofrodos', 'libmysqlclient-dev', 'libsnmp-dev', 'help2man'],
+                        'install_deps':['libsnmp-dev', 'libmysqlclient-dev', 'redhat-lsb'], test_env:'centos:6'],
              'Ubuntu1604':['packaging':'deb', 'init':'systemd', 'distro':'xenial', 
                            'build_env':'alanfranz/fwd-ubuntu-xenial:latest',
-                           'build_deps':['wget', 'gcc', 'tofrodos', 'libmysqlclient-dev', 'libsnmp-dev', 'help2man'],
+                           'build_deps':['wget', 'gcc', 'make', tofrodos', 'libmysqlclient-dev', 'libsnmp-dev', 'help2man'],
                            'install_deps':['libsnmp-dev', 'libmysqlclient-dev'], test_env:'ubuntu:xenial'],
              'Ubuntu1404':['packaging':'deb', 'init':'sysv', 'distro':'trusty',
                            'build_env':'alanfranz/fwd-ubuntu-trusty:latest',
-                           'build_deps':['autoconf', 'automake', 'dos2unix', 'gcc-core', 'gzip', 'help2man', 'libmysqlclient', 'libmysqlclient-devel', 'libtool', 'm4', 'make', 'net-snmp-devel', 'openssl-devel', 'wget'],
-                           'install_deps':['libpam0g-dev', 'libwrap0'], test_env:'ubuntu:trusty'],
+                           'build_deps':['wget', 'gcc', 'make', tofrodos', 'libmysqlclient-dev', 'libsnmp-dev', 'help2man'],
+                           'install_deps':['libsnmp-dev', 'libmysqlclient-dev'], test_env:'ubuntu:trusty'],
             ]
 
 def branches = [:]
